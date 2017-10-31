@@ -1,4 +1,9 @@
-﻿using DrinkWorld.Data.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using DrinkWorld.Data.Interfaces;
+using DrinkWorld.Data.Models;
 using DrinkWorld.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,15 +20,38 @@ namespace DrinkWorld.Controllers
             _drinkRepository = drinkRepository;
         }
 
-        public ViewResult List()
+        public ViewResult List(string category)
         {
-            ViewBag.Name = "Abstergo drink world";
-            DrinkListViewModel vm = new DrinkListViewModel
+            string _category = category;
+            IEnumerable<Drink> drinks;
+
+            string currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
             {
-                Drinks = _drinkRepository.Drinks,
-                CurrentCategory = "DrinkCategory"
+                drinks = _drinkRepository.Drinks.OrderBy(p => p.DrinkId);
+                currentCategory = "All drinks";
+            }
+            else
+            {
+                if (string.Equals("Alcoholic",_category, StringComparison.OrdinalIgnoreCase))
+                {
+                    drinks = _drinkRepository.Drinks.Where(p => p.Category.CategoryName.Equals("Alcoholic"))
+                        .OrderBy(c => c.Name);
+                }
+                else
+                    drinks = _drinkRepository.Drinks.Where(p => p.Category.CategoryName.Equals("Non-alcoholic"))
+                    .OrderBy(c => c.Name);
+                currentCategory = _category;
+            }
+            var dlvm = new DrinkListViewModel
+            {
+                Drinks = drinks,
+                CurrentCategory = currentCategory
             };
-            return View(vm);
+            return View(dlvm);
         }
+
+        
     }
 }

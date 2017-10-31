@@ -10,6 +10,7 @@
     <Content Include="wwwroot\Images\carousel-1.jpg" />
     <Content Include="wwwroot\Images\carousel-2.jpg" />
     <Content Include="wwwroot\Images\carousel-3.jpg" />
+    <Content Include="wwwroot\Images\DW.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
@@ -23,9 +24,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
   </ItemGroup>
 
 </Project>
