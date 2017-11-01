@@ -10,11 +10,17 @@
     <Content Include="wwwroot\Images\carousel-1.jpg" />
     <Content Include="wwwroot\Images\carousel-2.jpg" />
     <Content Include="wwwroot\Images\carousel-3.jpg" />
-    <Content Include="wwwroot\Images\DW.png" />
+    <Content Include="wwwroot\Images\Thanks.jpg" />
+    <Content Include="wwwroot\lib\animate.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Components\CategoryMenu\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.0.3" />
