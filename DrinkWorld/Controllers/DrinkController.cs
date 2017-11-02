@@ -51,7 +51,14 @@ namespace DrinkWorld.Controllers
             };
             return View(dlvm);
         }
+        public IActionResult Details(int id)
+        {
+            var product = _drinkRepository.GetDrinkById(id);
+            if (product == null)
+                return NotFound();
 
-        
+            return View(product);
+        }
+
     }
 }
